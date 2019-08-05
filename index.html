@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">	
+
+    <title>webrtc call</title>
+    <script>
+        // Set debug
+        window.localStorage.setItem('debug', '* -engine* -socket* *ERROR* *WARN*');
+    </script>
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="jssip-3.2.14.js"></script>	
+    <script src='call.js'></script>
+    <link rel="stylesheet" href="call.css">
+</head>
+
+<body>
+        <div id="errorMessage">must set sip uri/password</div>
+        
+        <button class="btn btn-info" id="logout">Logout</button> 
+        
+        <div id="wrapper">
+            <div id="incomingCall" style="display: none">
+                <div class="callInfo">
+                    <h3>Incoming Call</h3>
+                    <p id="incomingCallNumber">Unknown</p>
+                </div>
+                <div id="answer"> <i class="fa fa-phone"></i></div>
+                <div id="reject"> <i class="fa fa-phone"></i></div>
+            </div>
+            <div id="callStatus" style="display: none">
+                <div class="callInfo">
+                     <h3 id="callInfoText">info text goes here</h3>
+                    <p id="callInfoNumber">info number goes here</p>
+                </div>
+                <div id="hangUp"> <i class="fa fa-phone"></i>
+                </div>
+            </div>
+            <!---------TO FIELD---------------------------------------------------->
+            
+            <!---------DIALPAD---------------------------------------------------->
+            <div id="inCallButtons" style="display: none">
+                <div id="dialPad">
+                    
+                    <div class="dialpad-char" data-value="1" unselectable="on">1</div>
+                    <div class="dialpad-char" data-value="2" unselectable="on">2</div>
+                    <div class="dialpad-char" data-value="3" unselectable="on">3</div>
+                    <div class="dialpad-char" data-value="4" unselectable="on">4</div>
+                    <div class="dialpad-char" data-value="5" unselectable="on">5</div>
+                    <div class="dialpad-char" data-value="6" unselectable="on">6</div>
+                    <div class="dialpad-char" data-value="7" unselectable="on">7</div>
+                    <div class="dialpad-char" data-value="8" unselectable="on">8</div>
+                    <div class="dialpad-char" data-value="9" unselectable="on">9</div>
+                    <div class="dialpad-char" data-value="*" unselectable="on">*</div>
+                    <div class="dialpad-char" data-value="0" unselectable="on">0</div>
+                    <div class="dialpad-char" data-value="#" unselectable="on">#</div>
+                </div>
+                <div id="mute">
+                    <i id="muteIcon" class="fa fa-microphone"></i>
+                </div>
+            </div>
+
+			<!---------DIAL CONTROLS-------------------------------------------->
+			<div id="callControl">
+				<div id="to">
+					<input id="toField" type="text" placeholder="Enter number here"/>
+				</div>
+				<div id="connectCall"> <i class="fa fa-phone"></i>
+
+				</div>
+			</div>
+        </div>
+       
+	
+</body>
+
+</html>
