@@ -26,8 +26,22 @@
 
 <body>
         <div id="errorMessage">must set sip uri/password</div>
-        
-        <button class="btn btn-info" id="logout">Logout</button> 
+        <div class="input-group mb-6">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Login</span>
+            </div>
+            <input id="loginText" type="text" class="form-control">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+            </div>
+            <input id="passwordText" type="password" class="form-control">
+
+            <button id="loginButton" type="button" class="btn btn-primary">Login</button>
+            <button class="btn btn-info" id="logout">Logout</button> 
+
+        </div>
+       
         
         <div id="wrapper">
             <div id="incomingCall" style="display: none">
