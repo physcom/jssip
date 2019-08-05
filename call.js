@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
 var configuration = {
-  'uri': 'sip:6002@10.111.69.144', // FILL SIP URI HERE like sip:sip-user@your-domain.bwapp.bwsip.io
-  'password': '6002', // FILL PASSWORD HERE,
+  'uri': 'sip:6001@10.111.69.144', // FILL SIP URI HERE like sip:sip-user@your-domain.bwapp.bwsip.io
+  'password': '6001', // FILL PASSWORD HERE,
   'ws_servers': 'ws://10.111.69.144:8088/ws'
 };
 
@@ -18,6 +18,8 @@ var callOptions = {
 var phone;
 if(configuration.uri && configuration.password){
     JsSIP.debug.enable('JsSIP:*'); // more detailed debug output
+    socket = new JsSIP.WebSocketInterface("ws://10.111.69.144:8088/ws");
+    configuration.sockets = [socket];
     phone = new JsSIP.UA(configuration);
     phone.on('registrationFailed', function(ev){
         alert('Registering on SIP server failed with error: ' + ev.cause);
